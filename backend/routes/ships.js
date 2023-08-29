@@ -8,8 +8,10 @@ const Ships = new ShipsController();
 
 // SHIP ROUTES
 shipsRouter.get('/', Ships.listShips);
+shipsRouter.get('/:shipCode', Ships.listShipsById);
+
 shipsRouter.post('/', Ships.createShip);
-shipsRouter.put('/', Ships.updateShip);
-shipsRouter.delete('/', Ships.deleteShip);
+shipsRouter.put('/:shipCode', Ships.updateShip);
+shipsRouter.delete('/:shipCode', Ships.deleteShip);
 
 export default shipsRouter;
