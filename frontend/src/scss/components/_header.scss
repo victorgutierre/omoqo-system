@@ -1,0 +1,13 @@
+@use './../variables';
+
+.header {
+  text-align: center;
+  padding: 20px 0;
+  background: variables.$bg-color;
+  box-shadow: variables.$box-shadow;
+  margin-bottom: 60px;
+
+  img {
+    max-width: 200px;
+  }
+}

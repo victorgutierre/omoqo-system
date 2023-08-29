@@ -1,0 +1,10 @@
+@use "./scss/base"; 
+@use "./scss/grid"; 
+@use "./scss/variables"; 
+
+
+// COMPONENTS
+@use "./scss/components/header";
+@use "./scss/components/footer"; 
+@use "./scss/components/table";
+@use "./scss/components/headline";
