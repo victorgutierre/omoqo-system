@@ -8,16 +8,12 @@ export class ShipsController {
     try {
       res.status(200).json({ message: "Ok", data });
     } catch (error) {
-      res.json({ message: "Error!" });
+      res.status(500).json({ message: "Sorry, it was not possible to retrieve this ship" });
     }
   }
 
   listShipsById = (req, res, next) => {
     const { shipCode } = req.params;
-
-    if (!shipCode) {
-      return res.status(422).json({ message: "Ship Code is required" });
-    }
 
     let responseData = findShipById(data, shipCode) || [];
 
@@ -28,7 +24,7 @@ export class ShipsController {
     try {
       res.status(200).json({ message: "Ok", data: responseData });
     } catch (error) {
-      res.json({ message: "Error!" });
+      res.status(500).json({ message: "Sorry, it was not possible to retrieve this ship" });
     }
   }
 
@@ -91,7 +87,7 @@ export class ShipsController {
     try {
       res.status(200).json({ message: "Ok", data: responseData });
     } catch (error) {
-      res.json({ message: "Error!" });
+      res.status(500).json({ message: "Sorry, it was not possible to update the ship" });
     }
   }
 
@@ -121,7 +117,7 @@ export class ShipsController {
       try {
         res.status(200).json({ message: "Deleted" });
       } catch (error) {
-        res.json({ message: "Error!" });
+        res.status(500).json({ message: "Sorry, it was not possible to delete the ship" });
       }
     }
   }
