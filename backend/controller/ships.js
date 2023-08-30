@@ -20,9 +20,9 @@ export class ShipsController {
     if (!responseData.length) {
       return res.status(404).json({ message: "Ship not found" });
     }
-
+    
     try {
-      res.status(200).json({ message: "Ok", data: responseData });
+      res.status(200).json({ message: "Ok", data: responseData[0] });
     } catch (error) {
       res.status(500).json({ message: "Sorry, it was not possible to retrieve this ship" });
     }
