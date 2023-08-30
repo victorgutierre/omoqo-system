@@ -1,0 +1,50 @@
+.btn {
+  display: block;
+  width: 100%;
+  border: 0;
+  cursor: pointer;
+  text-align: center;
+  margin: 15px 0;
+  border-radius: 6px;
+  padding: 15px 0px;
+  font-weight: 600;
+  transition: .3s;
+  color: #fff;
+  background: #333;
+
+  &-primary {
+    background: #a259ff;
+    
+    &:hover {
+      background-color: #066066;
+    }
+  } 
+
+  &-secondary {
+    color: #a259ff;
+    border: 1px solid #a259ff;
+    background-color: transparent;
+    
+    &:hover {
+      color: #066066;
+      border-color: #066066;
+    }
+  }
+
+  &-danger {
+    background: #dc3545;
+    
+    &:hover {
+      background-color: darken(#dc3545, 10%);
+      
+    }
+  }
+
+  &-success {
+    background: #28a745;
+    
+    &:hover {
+      background-color: darken(#28a745, 10%);
+    }
+  }
+}

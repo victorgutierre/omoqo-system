@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import App from './App';
 import HomePage from './components/homePage';
 import EditShipPage from './components/editShipPage';
 import NewShipPage from './components/newShipPage';
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <HomePage></HomePage>,
+        element: <HomePage />,
       },
       {
         path: "edit/:shipCode",

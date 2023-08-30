@@ -1,8 +1,8 @@
-function Header() {
+function Header(props) {
   return (
    <header className="header">
     <a href="/">
-      <img src="/logo.png"></img>
+      <img alt="Omoqo" src="/logo.png"></img>
     </a>
    </header> 
   );
