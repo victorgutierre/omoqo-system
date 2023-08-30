@@ -8,9 +8,8 @@ const { confirm } = Modal;
 
 const { useState, useEffect } = React;
 
-function HomePage() {
+const HomePage = () => {
   const [ships, setShips] = useState([]);
-
 
   const getData = () => {
     axios.get("http://localhost:8080/api/ships")

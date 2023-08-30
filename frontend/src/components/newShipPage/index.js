@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 import Headline from "../headline";
 import Button from "../button";
+import InputText from "../input";
 
 const { useState } = React;
 
-function NewShipPage() {
+const NewShipPage = () => {
   const [shipData, setShipData] = useState({});
 
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function NewShipPage() {
 
     axios.post(`http://localhost:8080/api/ships`, payload)
       .then(res => {
-        message.success('The ship was created succesfuly');
+        message.success('Ship created with success');
         navigate("/");
       })
       .catch(err => {
@@ -47,31 +48,19 @@ function NewShipPage() {
           </div>
           
           <div className="col-lg-6">
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" onChange={(event) => onChangeHandler(event)} />
-            </label>
+            <InputText label={"Name"} fieldName={"name"} value={shipData.name} changeFn={onChangeHandler} />
           </div>
 
           <div className="col-lg-6">
-            <label>
-              <span>Code</span>
-              <input type="text" name="code" onChange={(event) => onChangeHandler(event)} />
-            </label>
+            <InputText label={"Code"} fieldName={"code"} value={shipData.code} changeFn={onChangeHandler} />
           </div>
 
           <div className="col-lg-6">
-            <label>
-              <span>Length</span>
-              <input type="text" name="length" onChange={(event) => onChangeHandler(event)} />
-            </label>
+            <InputText label={"Length"} fieldName={"length"} value={shipData.length} changeFn={onChangeHandler} />
           </div>
 
           <div className="col-lg-6">
-            <label>
-              <span>Width</span>
-              <input type="text" name="width" onChange={(event) => onChangeHandler(event)} />
-            </label>
+            <InputText label={"Width"} fieldName={"width"} value={shipData.width} changeFn={onChangeHandler} />
           </div>
 
           <div className="offset-lg-8 col-lg-4">

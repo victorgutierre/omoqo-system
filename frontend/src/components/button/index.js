@@ -1,4 +1,6 @@
-function Button({ title, theme, onClick }) {
+import React from 'react';
+
+const Button = ({ title, theme, onClick }) => {
 
   let themes = {
     primary: "btn-primary",

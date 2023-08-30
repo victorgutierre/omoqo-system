@@ -7,14 +7,15 @@ import Headline from "../headline";
 import { useParams } from "react-router";
 import Button from "../button";
 import { useNavigate } from "react-router-dom";
+import InputText from "../input";
 
 const { useState, useEffect } = React;
 
-function EditShipPage() {
-  let { shipCode } = useParams();
-  const [shipData, setShipData] = useState({});
-
+const EditShipPage = () => {
   const navigate = useNavigate();
+  let { shipCode } = useParams();
+
+  const [shipData, setShipData] = useState({});
 
   useEffect(() => {
     axios(`http://localhost:8080/api/ships/${shipCode}`).then((response) => {
@@ -26,6 +27,7 @@ function EditShipPage() {
 
   const onChangeHandler = event => {
     const value = event.target.value;
+    
     setShipData({
       ...shipData,
       [event.target.name]: value
@@ -41,7 +43,7 @@ function EditShipPage() {
 
     axios.put(`http://localhost:8080/api/ships/${shipCode}`, payload)
       .then(res => {
-        message.success('The ship was edited succesfuly');
+        message.success('Ship updated with success');
         navigate("/");
       })
       .catch(err => {
@@ -62,24 +64,15 @@ function EditShipPage() {
           </div>
           
           <div className="col-lg-6">
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" defaultValue={shipData.name} onChange={(event) => onChangeHandler(event)} />
-            </label>
+            <InputText label={"Name"} fieldName={"name"} value={shipData.name} changeFn={onChangeHandler} />
           </div>
 
           <div className="col-lg-6">
-            <label>
-              <span>Length</span>
-              <input type="text" name="length" defaultValue={shipData.length} onChange={(event) => onChangeHandler(event)} />
-            </label>
+            <InputText label={"Length"} fieldName={"length"} value={shipData.length} changeFn={onChangeHandler} />
           </div>
 
           <div className="col-lg-6">
-            <label>
-              <span>Width</span>
-              <input type="text" name="width" defaultValue={shipData.width} onChange={(event) => onChangeHandler(event)} />
-            </label>
+            <InputText label={"Width"} fieldName={"width"} value={shipData.width} changeFn={onChangeHandler} />
           </div>
 
           <div className="offset-lg-8 col-lg-4">

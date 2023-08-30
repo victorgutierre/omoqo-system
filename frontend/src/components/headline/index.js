@@ -1,4 +1,6 @@
-function Headline({ title, subtitle }) {
+import React from "react";
+
+const Headline = ({ title, subtitle }) => {
   return (
     <div className="headline">
       <h2 className="headline__title">{title}</h2>
